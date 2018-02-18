@@ -1,0 +1,165 @@
+$blue: rgb(151, 251, 246);
+$red: rgb(255, 59, 0);
+
+
+
+*:focus {
+    outline: none;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+	height: 100%;
+}
+
+body {
+  background-color: $blue;
+	height: 100%;
+	margin: 0;
+}
+
+div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left {
+	margin-left: -3000px;
+}
+
+.slideFromLeft {
+  animation: slideFromLeft 2s;
+}
+
+.slideToRight {
+	margin-left: 3000px;
+}
+
+button {
+   background-color: white;
+   border: none;
+   padding: 1em;
+   margin-bottom: 1vh;
+   font-size: 1em;
+   text-align: left;
+   max-width: 50vw;
+}
+
+button:hover {
+	cursor: pointer;
+	-webkit-box-shadow: 0px 12px 30px -8px rgba(0,176,189,1);
+	-moz-box-shadow: 0px 12px 30px -8px rgba(0,176,189,1);
+	box-shadow: 0px 12px 30px -8px rgba(0,176,189,1);
+	transition: box-shadow 0.2s ease-in;
+	background-color: yellow;
+}
+
+p {
+  font-weight: bold;
+	font-size: 1.3em;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: $red;
+}
+
+form {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.downScale {
+	height: 8em;
+}
+
+input[type="search"] {
+  min-width: 15vw;
+  height: 4em;
+  border: none;
+  border-radius: 25px;
+  -webkit-appearance: none;
+  padding-left: 20px;
+}
+
+input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 30px;
+  width: 30px;
+  background: $red;
+  border-radius: 50%;
+}
+
+input::-webkit-input-placeholder { /* For WebKit browsers */
+  color: rgb(151, 251, 246);
+	font-weight: bold;
+}
+
+input:hover {
+	-webkit-box-shadow: 0px 13px 30px -4px rgba(0,181,194,1);
+	-moz-box-shadow: 0px 13px 30px -4px rgba(0,181,194,1);
+	box-shadow: 0px 13px 30px -4px rgba(0,181,194,1);
+	transition: box-shadow 0.2s ease-in;
+}
+
+.showUp {
+  animation: showUp 2s;
+}
+
+@keyframes slideFromLeft {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes showUp {
+  from {
+    opacity: 0;
+    transform: scale(0.1) rotate(30deg);
+    transform-origin: 100% 100%;
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  70% {
+    transform: rotate(3deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
